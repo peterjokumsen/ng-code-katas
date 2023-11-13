@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  button {
+    flex: 1;
+    font-size: 3rem;
+  }
+
+  .counter {
+    flex: 2;
+    padding: 1.5rem;
+    text-align: center;
+  }
+}

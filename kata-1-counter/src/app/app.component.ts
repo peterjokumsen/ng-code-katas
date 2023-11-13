@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -11,4 +11,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'kata-1-counter';
+  count = signal(0);
+
+  adjust(adjustment: 'up' | 'down'): void {
+    this.count.update((v) => v + (adjustment === 'up' ? 1 : -1));
+  }
 }
