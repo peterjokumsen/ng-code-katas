@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { QuoteProviderService } from './quote-provider.service';
+import { Observable } from 'rxjs';
+import { Quote } from './models';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +13,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'kata-3-quote';
+  quoteSvc = inject(QuoteProviderService);
+
+  quote$: Observable<Quote | undefined> = this.quoteSvc.quote$;
 }
