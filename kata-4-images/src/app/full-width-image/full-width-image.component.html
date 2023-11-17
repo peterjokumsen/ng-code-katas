@@ -1,0 +1,8 @@
+<div
+  class="img-container"
+  [ngClass]="{ expand: state === 'show', collapse: state === 'hide' }"
+  (click)="hideImage()"
+>
+  <img [src]="src()" alt="image" />
+  <p class="info">Click anywhere or press <strong>Esc</strong> to close this window.</p>
+</div>
