@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+.heading-buttons {
+  gap: 1em;
+}

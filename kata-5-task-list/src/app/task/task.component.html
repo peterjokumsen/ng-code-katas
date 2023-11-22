@@ -1,0 +1,35 @@
+<div class="task mb-3" *ngIf="task">
+  <div class="heading d-flex mb-3">
+    <h2 class="flex-grow-1">Task #{{ task.id }} - {{ task.title }}</h2>
+
+    <div class="heading-buttons d-flex">
+      <button class="btn btn-danger" (click)="deleteTask()">Delete</button>
+      <button class="btn btn-primary" (click)="updateTask()" [disabled]="!updateForm.valid">Update</button>
+    </div>
+  </div>
+  <form [formGroup]="updateForm">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="title" formControlName="title" />
+      <label for="title">Title</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        formControlName="description"
+      ></textarea>
+      <label for="description">Description</label>
+    </div>
+  </form>
+  <div class="status d-flex justify-content-around">
+    @if (previousStatus) {
+      <button class="btn btn-secondary" (click)="shiftStatus('back')">{{ previousStatus }}</button>
+    }
+    <div class="badge bg-primary">{{ currentStatus }}</div>
+    @if (nextStatus) {
+      <button class="btn btn-success" (click)="shiftStatus('forward')">{{ nextStatus }}</button>
+    }
+  </div>
+</div>
