@@ -1,0 +1,85 @@
+{
+  "name": "ng-katas",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "ng-katas",
+  "sourceRoot": "apps/ng-katas/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng-katas",
+        "index": "apps/ng-katas/src/index.html",
+        "browser": "apps/ng-katas/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/ng-katas/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/ng-katas/src/favicon.ico", "apps/ng-katas/src/assets"],
+        "styles": ["apps/ng-katas/src/styles.scss"],
+        "scripts": [],
+        "server": "apps/ng-katas/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/ng-katas/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "ng-katas:build:production"
+        },
+        "development": {
+          "buildTarget": "ng-katas:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "ng-katas:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ng-katas/**/*.ts", "apps/ng-katas/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ng-katas/jest.config.ts"
+      }
+    }
+  }
+}
