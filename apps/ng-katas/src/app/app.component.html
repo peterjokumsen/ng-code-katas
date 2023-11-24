@@ -1,2 +1,10 @@
 <!-- TODO: add header and nav -->
+<header>
+  <h1>Angular katas</h1>
+</header>
+<nav>
+  @for (kata of katas; track kata.path) {
+    <a [routerLink]="[kata.path]">{{ kata.name }}</a>
+  }
+</nav>
 <router-outlet></router-outlet>

@@ -8,4 +8,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {}
+export class AppComponent {
+  katas: Array<{ name: string; path: string }> = [
+    { name: 'Counter', path: 'kata-1' },
+  ];
+}
