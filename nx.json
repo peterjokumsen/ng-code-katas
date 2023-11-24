@@ -54,6 +54,7 @@
       "e2eTestRunner": "none"
     },
     "@nx/angular:library": {
+      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
