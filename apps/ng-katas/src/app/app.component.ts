@@ -12,5 +12,6 @@ export class AppComponent {
   katas: Array<{ name: string; path: string }> = [
     { name: 'Counter', path: 'kata-1' },
     { name: 'Calculator', path: 'kata-2' },
+    { name: 'Quote Generator', path: 'kata-3' },
   ];
 }

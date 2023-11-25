@@ -1,0 +1,44 @@
+{
+  "name": "katas-quote",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/katas/quote/src",
+  "prefix": "ng-katas",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/katas/quote/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/katas/quote/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/katas/quote/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/katas/quote/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/katas/quote/**/*.ts",
+          "libs/katas/quote/**/*.html",
+          "libs/katas/quote/package.json"
+        ]
+      }
+    }
+  }
+}
