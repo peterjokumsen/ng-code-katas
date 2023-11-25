@@ -8,7 +8,7 @@ import { Task, TaskStatus } from '../models';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.css',
+  styleUrl: './task.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskComponent {

@@ -18,7 +18,8 @@
       "@ng-katas/katas/calc": ["libs/katas/calc/src/index.ts"],
       "@ng-katas/katas/counter": ["libs/katas/counter/src/index.ts"],
       "@ng-katas/katas/images": ["libs/katas/images/src/index.ts"],
-      "@ng-katas/katas/quote": ["libs/katas/quote/src/index.ts"]
+      "@ng-katas/katas/quote": ["libs/katas/quote/src/index.ts"],
+      "@ng-katas/katas/task-list": ["libs/katas/task-list/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

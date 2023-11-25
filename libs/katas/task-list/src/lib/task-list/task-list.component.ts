@@ -1,18 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { TasksService } from './tasks.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TaskComponent } from "./task/task.component";
+import { TasksService } from '../tasks.service';
+import { TaskComponent } from '../task/task.component';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [CommonModule, ReactiveFormsModule, RouterOutlet, TaskComponent]
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, TaskComponent],
+  templateUrl: './task-list.component.html',
+  styleUrl: './task-list.component.scss',
 })
-export class AppComponent {
+export class TaskListComponent {
   private fb = inject(FormBuilder);
   svc = inject(TasksService);
 
