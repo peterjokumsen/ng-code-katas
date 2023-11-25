@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-katas/katas/calc": ["libs/katas/calc/src/index.ts"],
       "@ng-katas/katas/counter": ["libs/katas/counter/src/index.ts"]
     }
   },

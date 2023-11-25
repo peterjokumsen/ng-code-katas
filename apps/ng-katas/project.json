@@ -17,7 +17,10 @@
         "tsConfig": "apps/ng-katas/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/ng-katas/src/favicon.ico", "apps/ng-katas/src/assets"],
-        "styles": ["apps/ng-katas/src/styles.scss"],
+        "styles": [
+          "apps/ng-katas/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss"
+        ],
         "scripts": [],
         "server": "apps/ng-katas/src/main.server.ts",
         "prerender": true,

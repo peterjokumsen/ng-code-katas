@@ -9,5 +9,9 @@ export const appRoutes: Route[] = [
   {
     path: 'kata-1',
     loadComponent: () => import('@ng-katas/katas/counter').then(m => m.CounterComponent),
-  }
+  },
+  {
+    path: 'kata-2',
+    loadComponent: () => import('@ng-katas/katas/calc').then(m => m.CalcComponent),
+  },
 ];

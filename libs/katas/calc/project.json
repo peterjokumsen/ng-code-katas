@@ -1,0 +1,44 @@
+{
+  "name": "katas-calc",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/katas/calc/src",
+  "prefix": "ng-katas",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/katas/calc/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/katas/calc/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/katas/calc/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/katas/calc/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/katas/calc/**/*.ts",
+          "libs/katas/calc/**/*.html",
+          "libs/katas/calc/package.json"
+        ]
+      }
+    }
+  }
+}

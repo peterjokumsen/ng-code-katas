@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren, computed, inject } from '@angular/core';
+import { Component, ElementRef, inject, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { catchError, map, startWith } from 'rxjs/operators';
+import { catchError, map } from 'rxjs';
 
 interface CalcOperator {
   key: string;
@@ -11,13 +10,12 @@ interface CalcOperator {
 }
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [CommonModule, ReactiveFormsModule, RouterOutlet]
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './calc.component.html',
+  styleUrl: './calc.component.scss',
 })
-export class AppComponent implements AfterViewInit {
+export class CalcComponent {
   private formBuilder = inject(FormBuilder);
 
   readonly operators: CalcOperator[] = [

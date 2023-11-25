@@ -11,5 +11,6 @@ import { RouterModule } from '@angular/router';
 export class AppComponent {
   katas: Array<{ name: string; path: string }> = [
     { name: 'Counter', path: 'kata-1' },
+    { name: 'Calculator', path: 'kata-2' },
   ];
 }
