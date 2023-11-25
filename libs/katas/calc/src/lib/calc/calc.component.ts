@@ -1,4 +1,10 @@
-import { Component, ElementRef, inject, QueryList, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { catchError, map } from 'rxjs';
@@ -38,7 +44,7 @@ export class CalcComponent {
     map(({ firstNumber, secondNumber, operator }) => {
       const first = parseFloat(firstNumber ?? '0');
       const second = parseFloat(secondNumber ?? '0');
-      const selectedOperator = this.operators.find(op => op.key === operator);
+      const selectedOperator = this.operators.find((op) => op.key === operator);
       return selectedOperator?.operation(first, second) ?? 0;
     }),
     map((result) => (isNaN(result) ? '🤖 could not compute' : `${result}`)),

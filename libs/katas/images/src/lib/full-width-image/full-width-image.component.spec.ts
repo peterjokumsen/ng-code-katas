@@ -8,10 +8,9 @@ describe('FullWidthImageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FullWidthImageComponent]
-    })
-    .compileComponents();
-    
+      imports: [FullWidthImageComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(FullWidthImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

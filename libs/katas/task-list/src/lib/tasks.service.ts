@@ -5,13 +5,15 @@ import { Task } from './models';
   providedIn: 'root',
 })
 export class TasksService {
-  private state = signal<{ tasks: Task[], lastAction: string }>({
-    tasks: [{
-      id: 0,
-      title: 'Create a task',
-      description: 'Fill in title and description, then click "Add task"',
-      status: 'in progress',
-    }],
+  private state = signal<{ tasks: Task[]; lastAction: string }>({
+    tasks: [
+      {
+        id: 0,
+        title: 'Create a task',
+        description: 'Fill in title and description, then click "Add task"',
+        status: 'in progress',
+      },
+    ],
     lastAction: 'initialised',
   });
 
@@ -25,14 +27,15 @@ export class TasksService {
         ...state,
         lastAction: `added task '${task.title}'`,
         tasks: [...state.tasks, { ...task, id, status: 'open' as const }],
-      }
+      };
     });
   }
 
   removeTask(id: number) {
     this.state.update((state) => ({
       ...state,
-      lastAction: `removed task '${state.tasks.find((t) => t.id === id)?.title}'`,
+      lastAction: `removed task '${state.tasks.find((t) => t.id === id)
+        ?.title}'`,
       tasks: state.tasks.filter((t) => t.id !== id),
     }));
   }
@@ -40,7 +43,8 @@ export class TasksService {
   updateTask(id: number, task: Partial<Task>) {
     this.state.update((state) => ({
       ...state,
-      lastAction: `updated task '${state.tasks.find((t) => t.id === id)?.title}'`,
+      lastAction: `updated task '${state.tasks.find((t) => t.id === id)
+        ?.title}'`,
       tasks: state.tasks.map((t) => (t.id === task.id ? { ...t, ...task } : t)),
     }));
   }

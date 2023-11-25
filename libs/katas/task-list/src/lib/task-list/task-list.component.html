@@ -5,13 +5,20 @@
 
   <ng-template #inputError let-control="control" let-label="label">
     @if (control.errors && control.touched) {
-      <p class="error" *ngIf="control.errors.required">{{ label }} is required</p>
+      <p class="error" *ngIf="control.errors.required">
+        {{ label }} is required
+      </p>
     }
   </ng-template>
 
   <form [formGroup]="taskForm">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="title" formControlName="title" />
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+      />
       <label for="title">Title</label>
       <ng-container
         [ngTemplateOutlet]="inputError"

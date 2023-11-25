@@ -9,8 +9,12 @@ import { FullWidthImageComponent } from '../full-width-image/full-width-image.co
   styleUrl: './images.component.scss',
 })
 export class ImagesComponent {
-  private numbers = Array(10).fill(0).map((x, i) => i + 1);
+  private numbers = Array(10)
+    .fill(0)
+    .map((x, i) => i + 1);
 
-  imageUrls = this.numbers.map((x) => `assets/image-kata/images/0${x < 10 ? '0' + x : x}.svg`);
+  imageUrls = this.numbers.map(
+    (x) => `assets/image-kata/images/0${x < 10 ? '0' + x : x}.svg`,
+  );
   selectedImage = signal<string | undefined>(undefined);
 }

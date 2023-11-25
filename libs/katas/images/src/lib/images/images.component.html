@@ -1,7 +1,14 @@
 <h1>Image Gallery</h1>
 <div class="images">
-  <div class="image" *ngFor="let imageUrl of imageUrls" (click)="selectedImage.set(imageUrl)">
+  <div
+    class="image"
+    *ngFor="let imageUrl of imageUrls"
+    (click)="selectedImage.set(imageUrl)"
+  >
     <img [src]="imageUrl" alt="image" />
   </div>
 </div>
-<app-full-width-image [imageUrl]="selectedImage()" (hidden)="selectedImage.set(undefined)"></app-full-width-image>
+<app-full-width-image
+  [imageUrl]="selectedImage()"
+  (hidden)="selectedImage.set(undefined)"
+></app-full-width-image>

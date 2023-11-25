@@ -1,4 +1,8 @@
-<ng-template #numberInputTemplate let-control="control" let-controlLabel="controlLabel">
+<ng-template
+  #numberInputTemplate
+  let-control="control"
+  let-controlLabel="controlLabel"
+>
   <div class="form-floating mb-3">
     <input
       #numberInput
@@ -10,7 +14,7 @@
     />
     <label for="{{ control.name }}">{{ controlLabel }}</label>
 
-    <ng-container *ngIf="control?.errors let errors">
+    <ng-container *ngIf="control?.errors; let errors">
       <p class="text-danger" *ngIf="errors['required'] && !control.untouched">
         Please supply a value.
       </p>
@@ -25,7 +29,10 @@
       <form [formGroup]="calcFormGroup">
         <ng-container
           [ngTemplateOutlet]="numberInputTemplate"
-          [ngTemplateOutletContext]="{ control: calcFormGroup.get('firstNumber'), controlLabel: 'First Number' }"
+          [ngTemplateOutletContext]="{
+            control: calcFormGroup.get('firstNumber'),
+            controlLabel: 'First Number'
+          }"
         ></ng-container>
 
         <div class="form-floating mb-3">
@@ -39,12 +46,18 @@
 
         <ng-container
           [ngTemplateOutlet]="numberInputTemplate"
-          [ngTemplateOutletContext]="{ control: calcFormGroup.get('secondNumber'), controlLabel: 'Second Number' }"
+          [ngTemplateOutletContext]="{
+            control: calcFormGroup.get('secondNumber'),
+            controlLabel: 'Second Number'
+          }"
         ></ng-container>
       </form>
     </div>
     <div class="col-12 col-md-6 output">
-      <div class="results" *ngIf="(result$ | async) let result; else provideValuesTemplate">
+      <div
+        class="results"
+        *ngIf="result$ | async; let result; else: provideValuesTemplate"
+      >
         <h2>Result</h2>
         <p>{{ result ?? '0' }}</p>
       </div>

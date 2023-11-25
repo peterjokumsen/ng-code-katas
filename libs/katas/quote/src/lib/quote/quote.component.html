@@ -5,10 +5,14 @@
   </p>
 </ng-template>
 <button (click)="quoteSvc.generateQuote()">Generate Quote</button>
-<div class="quote" *ngIf="(quote$ | async) let quote; else introductionTemplate">
+<div
+  class="quote"
+  *ngIf="quote$ | async; let quote; else: introductionTemplate"
+>
   <p class="quote-text">{{ quote.text }}</p>
   <p class="attribution">{{ quote.author }}</p>
   <p class="disclaimer">
-    Quote provided by <a href="https://chat.openai.com/">ChatGPT</a> without being verified for accuracy.
+    Quote provided by <a href="https://chat.openai.com/">ChatGPT</a> without
+    being verified for accuracy.
   </p>
 </div>
