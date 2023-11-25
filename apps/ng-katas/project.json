@@ -16,7 +16,15 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/ng-katas/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/ng-katas/src/favicon.ico", "apps/ng-katas/src/assets"],
+        "assets": [
+          "apps/ng-katas/src/favicon.ico",
+          "apps/ng-katas/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/katas/images/src/assets",
+            "output": "/assets/image-kata"
+          }
+        ],
         "styles": [
           "apps/ng-katas/src/styles.scss",
           "node_modules/bootstrap/scss/bootstrap.scss"

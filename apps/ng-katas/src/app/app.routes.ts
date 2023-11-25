@@ -17,5 +17,9 @@ export const appRoutes: Route[] = [
   {
     path: 'kata-3',
     loadComponent: () => import('@ng-katas/katas/quote').then(m => m.QuoteComponent),
+  },
+  {
+    path: 'kata-4',
+    loadComponent: () => import('@ng-katas/katas/images').then(m => m.ImagesComponent),
   }
 ];

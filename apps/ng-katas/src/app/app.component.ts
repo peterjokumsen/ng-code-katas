@@ -13,5 +13,6 @@ export class AppComponent {
     { name: 'Counter', path: 'kata-1' },
     { name: 'Calculator', path: 'kata-2' },
     { name: 'Quote Generator', path: 'kata-3' },
+    { name: 'Image Gallery', path: 'kata-4' },
   ];
 }

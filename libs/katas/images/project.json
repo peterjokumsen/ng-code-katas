@@ -1,0 +1,44 @@
+{
+  "name": "katas-images",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/katas/images/src",
+  "prefix": "ng-katas",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/katas/images/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/katas/images/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/katas/images/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/katas/images/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/katas/images/**/*.ts",
+          "libs/katas/images/**/*.html",
+          "libs/katas/images/package.json"
+        ]
+      }
+    }
+  }
+}
